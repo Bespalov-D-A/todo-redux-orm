@@ -5,9 +5,21 @@ export class Todo extends Model {
   static reducer(action, Todo, session) {
     switch (action.type) {
       case "ADD_TODO":
-        if (!Todo.filter({ id: action.payload.id }).exists()) {
+        if (!action.payload.id) {
+          let id;
+          if (session.Todo.all().last()) {
+            id = session.Todo.all().last().ref.id + 1;
+          } else id = 1
+          let obj = { ...action.payload, id };
+          Todo.create(obj);
+          break;
+        }
+        else if (!Todo.filter({ id: action.payload.id }).exists()) {
           Todo.create(action.payload);
         }
+        break;
+      case "DELETE_TODO":
+        Todo.withId(action.payload).delete();
         break;
     }
   }
@@ -16,7 +28,8 @@ export class Todo extends Model {
 Todo.fields = {
   id: attr(),
   title: attr(),
-  todosId: fk({
+  description: attr(),
+  userId: fk({
     to: "User",
     as: "user",
     relatedName: "todos",

@@ -1,0 +1,20 @@
+.todo {
+  position: relative;
+  padding: 8px 18px 6px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.delete {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  padding: 4px;
+  font-weight: bold;
+  background: crimson;
+  color: #fff;
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+

@@ -1,13 +1,13 @@
 .form {
-  width: 240px;
+ margin: 0 24px 24px 24px; 
 }
 
 .form > h3 {
   margin: 0;
 }
 
-
-/*.form > :not(:first-child):not(:last-child) {*/
 .form > :not(:last-child) {
   margin-bottom: 12px;
 }
+
+

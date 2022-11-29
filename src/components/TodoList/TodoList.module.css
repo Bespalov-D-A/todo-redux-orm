@@ -1,0 +1,3 @@
+.todo-list > :not(:last-child) {
+  margin-bottom: 18px;
+}

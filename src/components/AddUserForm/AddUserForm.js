@@ -9,6 +9,7 @@ const AddUserForm = () => {
   const [name, setName] = useState("");
 
   const addUserFunc = () => {
+    if(name.length === 0) return
     dispatch({ type: "ADD_USER", payload: { id: null, name } });
     setName("");
   };

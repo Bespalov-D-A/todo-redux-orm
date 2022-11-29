@@ -20,7 +20,7 @@ const BaseSelect = (props) => {
 			name='select'
 			className={s["select-input"]}
 		>
-			<option value={null}>Не выбирать</option>
+			<option value={''}>Не выбирать</option>
 			{returnOptions(options)}
 		</select>
 	);
