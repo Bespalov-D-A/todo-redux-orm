@@ -1,0 +1,15 @@
+.input-wrap {
+	width: 200px;
+	height: 32px;
+	border-radius: 8px;
+	border: solid 1px lightblue;
+	text-align: center;
+}
+
+.input {
+	width: 176px;
+	height: 30px;
+	border: none;
+	outline: none;
+	background: transparent;
+}
