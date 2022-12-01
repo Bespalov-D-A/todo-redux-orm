@@ -10,7 +10,7 @@ import s from "./SelectUserForm.module.css";
 const SelectUserForm = (props) => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const users = userSelector(state).all().toRefArray();
+  const users = userSelector(state)
 
   const setUserFunc = (e) => {
     dispatch(setSelectedUserId(e.target.value));

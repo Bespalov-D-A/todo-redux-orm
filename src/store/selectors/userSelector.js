@@ -5,7 +5,7 @@ export const userSelector = createSelector(
   orm,
   (state) => state.ormReducer.User,
   (session, id) => {
-    return session.User;
+    return session.User.all().toRefArray();
   }
 );
 
@@ -13,8 +13,12 @@ export const getUserSelector = createSelector(
   orm,
   (state) => state.userSlice.selectedUserId,
   (session, selectedUserId) => {
-    const obj = session.User.withId(selectedUserId)
-    if (obj) return obj.ref;
-    else return null;
+    if (selectedUserId === "All") {
+      return { id: "All" };
+    } else {
+      const obj = session.User.withId(selectedUserId);
+      if (obj) return obj.ref;
+      else return null;
+    }
   }
 );
