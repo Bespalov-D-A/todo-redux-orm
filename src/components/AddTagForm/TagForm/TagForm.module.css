@@ -1,15 +1,17 @@
 .tag-form {
 	display: flex;
+	height: 38px;
 }
 
 .wrap {
 	position: relative;
-	margin-right: 12px;
+	margin-right: 6px;
+	margin-left: 20px;
 }
 
 .cansle {
 	position: absolute;
-	right: 0;
+	left: -32px;
 	top: 10px;
 	width: 32px;
 	height: 32px;

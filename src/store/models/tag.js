@@ -7,7 +7,7 @@ export class Tag extends Model {
     switch (type) {
       case "ADD_TAG":
         if (!Tag.filter({ name: payload }).exists()) {
-          let obj = { name: payload };
+          let obj = {value: payload, label: payload, name: payload };
           Tag.create(obj);
         }
         break;
@@ -20,6 +20,8 @@ export class Tag extends Model {
 
 Tag.fields = {
   name: attr(),
+  value: attr(),
+  label: attr()
 };
 Tag.options = {
   idAttribute: "name",

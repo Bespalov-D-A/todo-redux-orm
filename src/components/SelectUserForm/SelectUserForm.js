@@ -17,7 +17,6 @@ const SelectUserForm = (props) => {
   };
 
   const user = getUserSelector(state);
-  //console.log(user);
 
   return (
     <div className={s.form}>
@@ -25,7 +24,7 @@ const SelectUserForm = (props) => {
       <BaseSelect
         handleChange={setUserFunc}
         value={user}
-        options={users}
+        options={[{name: 'All', id: 'All'}, ...users]}
         attrValue={"id"}
         attrName={"name"}
       />

@@ -1,31 +1,40 @@
-import { useState } from "react";
-import {useDispatch} from "react-redux";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import BaseBtn from "../UI/buttons/BaseBtn/BaseBtn";
-import BaseInput from "../UI/inputs/BaseInput/BaseInput";
 import s from "./AddTagForm.module.css";
 import TagForm from "./TagForm/TagForm";
 
-const AddTagUserForm = (props) => {
-  const {todoId} = props
-  const dispatch = useDispatch()
+const AddTagForm = (props) => {
+  const { todoId } = props;
+  const dispatch = useDispatch();
+  // @ts-ignore
   const [isActive, setIsActive] = useState(false);
-  const [tag, setTag] = useState("");
+  const tagRef = useRef();
 
   const onClickFunc = () => {
     setIsActive(true);
   };
 
   const close = () => {
-    setIsActive(false)
-    setTag('')
-  }
+    setIsActive(false);
+  };
+
+  const setValTagFunc = (e) => {
+    // @ts-ignore
+    tagRef.current = { value: e };
+  };
 
   const setTagFunc = () => {
-    setIsActive(false)
-    dispatch({type: 'ADD_TAG', payload: tag})
-    dispatch({type: 'ADD_TAG_FROM_TODO', payload: {tag, todoId}})
-    setTag('')
-  }
+    setIsActive(false);
+    const ref = tagRef.current;
+    // @ts-ignore
+    dispatch({ type: "ADD_TAG", payload: ref.value });
+    dispatch({
+      type: "ADD_TAG_FROM_TODO",
+      // @ts-ignore
+      payload: { tag: ref.value, todoId },
+    });
+  };
 
   return (
     <div className={s.form}>
@@ -33,8 +42,7 @@ const AddTagUserForm = (props) => {
         <TagForm
           setFunc={setTagFunc}
           type="text"
-          value={tag}
-          onChange={setTag}
+          onChange={setValTagFunc}
           placeholder="Название тега"
           close={close}
         />
@@ -45,4 +53,4 @@ const AddTagUserForm = (props) => {
   );
 };
 
-export default AddTagUserForm;
+export default AddTagForm;

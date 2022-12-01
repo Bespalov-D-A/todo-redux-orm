@@ -21,14 +21,21 @@ export class Todo extends Model {
       case "ADD_TAG_FROM_TODO":
         if (
           !Todo.withId(payload.todoId)
-            .tags.filter({ name: payload.tag })
+            .tagsIds.filter({ name: payload.tag })
             .exists()
-        )
-          Todo.withId(payload.todoId).tags.add(payload.tag);
+        ) {
+          const obj = {
+            value: payload.tag,
+            label: payload.tag,
+            name: payload.tag,
+          };
+          const fff = Todo.withId(payload.todoId)
+          fff.tagsIds.add(payload.tag);
+        }
         break;
-      case 'DELETE_TAG_FROM_TODO':
-        Todo.withId(payload.todoId).tags.remove(payload.tag);
-        break
+      case "DELETE_TAG_FROM_TODO":
+        Todo.withId(payload.todoId).tagsIds.remove(payload.tag);
+        break;
       case "DELETE_TODO":
         Todo.withId(action.payload).delete();
         break;
@@ -45,5 +52,9 @@ Todo.fields = {
     as: "user",
     relatedName: "todos",
   }),
-  tags: many("Tag", "todos"),
+  tags: many({
+    to: "Tag",
+    as: 'tagsIds',
+    relatedName: 'todos'
+  })
 };
