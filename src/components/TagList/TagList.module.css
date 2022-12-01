@@ -1,0 +1,7 @@
+.tag-list {
+  padding: 12px;
+}
+
+.tag-list > :not(:last-child) {
+  margin-right: 8px;
+}

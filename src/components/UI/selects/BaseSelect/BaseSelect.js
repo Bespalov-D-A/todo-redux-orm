@@ -10,17 +10,16 @@ const BaseSelect = (props) => {
 			</option>
 		));
 	};
-	console.log(value);
 
 	return (
 		<select
 			onChange={handleChange}
 			value={value ? value.id : "Выберите BLYA юзера"}
-			id='select'
-			name='select'
+			id="select"
+			name="select"
 			className={s["select-input"]}
 		>
-			<option value={''}>Не выбирать</option>
+			<option value={""}>Не выбирать</option>
 			{returnOptions(options)}
 		</select>
 	);

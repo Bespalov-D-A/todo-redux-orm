@@ -1,4 +1,7 @@
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useGetTagsFromTodo} from "../../hooks/useGetTagsFormTodo";
+import AddTagForm from "../AddTagForm/AddTagForm";
+import TagList from "../TagList/TagList";
 import s from "./TodoItem.module.css";
 
 const TodoItem = (props) => {
@@ -14,6 +17,10 @@ const TodoItem = (props) => {
       <div className={s.delete} onClick={deleteTodo}>DEL</div>
       <h4>{title}</h4>
       <p>{description}</p>
+      <TagList todoId={id} tags={useGetTagsFromTodo(id)}/>
+      <div className={s.tag}>
+        <AddTagForm todoId={id}/>
+      </div>
     </div>
   );
 };

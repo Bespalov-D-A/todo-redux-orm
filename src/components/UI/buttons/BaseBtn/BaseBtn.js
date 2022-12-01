@@ -4,7 +4,7 @@ const BaseBtn = (props) => {
 	const { value, onClick, style } = props;
 
 	return (
-		<input className={s.btn + ' ' + s[style]} type="button" value={value} onClick={onClick} />
+		<div className={s.btn + ' ' + s[style]} onClick={onClick} >{value}</div>
 	);
 };
 

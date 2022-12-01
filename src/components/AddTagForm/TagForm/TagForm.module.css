@@ -1,0 +1,22 @@
+.tag-form {
+	display: flex;
+}
+
+.wrap {
+	position: relative;
+	margin-right: 12px;
+}
+
+.cansle {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	color: silver;
+}
+
+.cansle:hover {
+	cursor: pointer;
+}
