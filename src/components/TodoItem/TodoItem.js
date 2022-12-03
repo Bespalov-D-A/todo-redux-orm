@@ -18,13 +18,15 @@ const TodoItem = (props) => {
 
   return (
     <div className={s.todo}>
-      <div className={s.delete} onClick={deleteTodo}>
-        DEL
+      <div className={s.header}>
+        <div className={s.delete} onClick={deleteTodo}>
+          &#10006;
+        </div>
+        <p className={s.name}>
+          Задача для <b>{user.name}</b>
+        </p>
+        <hr />
       </div>
-      <p className={s.name}>
-        Задача для <b>{user.name}</b>
-      </p>
-      <hr />
       <h4>{title}</h4>
       <p>{description}</p>
       <TagList todoId={id} tags={useGetTagsFromTodo(id)} />

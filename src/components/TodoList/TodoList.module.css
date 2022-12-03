@@ -1,3 +1,8 @@
+.todo-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .todo-list > :not(:last-child) {
-  margin-bottom: 18px;
+  margin-right: 18px;
 }

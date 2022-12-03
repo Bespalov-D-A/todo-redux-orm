@@ -1,10 +1,10 @@
 import s from './BaseBtn.module.css'
 
 const BaseBtn = (props) => {
-	const { value, onClick, style } = props;
+	const { btnRef, value, onClick, style } = props;
 
 	return (
-		<div className={s.btn + ' ' + s[style]} onClick={onClick} >{value}</div>
+		<div ref={btnRef && btnRef} className={s.btn + ' ' + s[style]} onClick={onClick} >{value}</div>
 	);
 };
 

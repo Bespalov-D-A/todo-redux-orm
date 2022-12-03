@@ -16,7 +16,7 @@ const AddUserForm = () => {
 
   return (
     <div className={s.form}>
-      <h3>ADD USER</h3>
+      <h3>ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ</h3>
       <BaseInput type="text" value={name} onChange={setName} />
       <BaseBtn style={"classic"} value={"add"} onClick={addUserFunc} />
     </div>

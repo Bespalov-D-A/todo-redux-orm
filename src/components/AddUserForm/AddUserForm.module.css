@@ -1,5 +1,6 @@
 .form {
   width: 240px;
+  margin-bottom: 32px;
 }
 
 .form > h3 {

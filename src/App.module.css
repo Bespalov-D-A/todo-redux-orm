@@ -1,9 +1,19 @@
 .app {
   display: flex;
-  flex-flow: column wrap;
-  padding: 24px;
+  position: relative;
+  padding: 60px 24px 24px 380px;
+  flex-flow: row wrap;
 }
 
 .forms {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  padding: 34px;
   display: flex;
+  flex-flow: column wrap;
+  background: #fff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }

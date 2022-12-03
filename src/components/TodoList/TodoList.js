@@ -1,18 +1,29 @@
+import {useMemo} from "react";
 import { useSelector } from "react-redux";
-import { getTodosByUserId } from "../../store/selectors/todoSelector";
+import { getTodosByTag, getTodosByUserId } from "../../store/selectors/todoSelector";
 import List from "../common/List/List";
 import TodoItem from "../TodoItem/TodoItem";
 import s from "./TodoList.module.css";
 
 const TodoList = (props) => {
   const state = useSelector((state) => state);
-  const todos = getTodosByUserId(state);
+  // @ts-ignore
+  const selectedTag = useSelector(state => state.todoSlice.selectedTag)
+  // @ts-ignore
+  const selectedUserId = useSelector(state => state.userSlice.selectedUserId)
+
+  const getTodos = useMemo(()=> {
+    if(selectedTag)
+      return getTodosByTag(state)
+    else return getTodosByUserId(state);
+  // @ts-ignore
+  }, [selectedTag, selectedUserId, state])
 
   const getList = () => {
-    if (todos.length > 0)
+    if (getTodos.length > 0)
       return (
         <List
-          items={todos}
+          items={getTodos}
           renderItem={(todo) => (
             <TodoItem
               key={todo.id}
@@ -28,7 +39,7 @@ const TodoList = (props) => {
 
   return (
     <div className={s["todo-list"]}>
-      {Array.isArray(todos) ? getList() : todos}
+      {Array.isArray(getTodos) ? getList() : getTodos}
     </div>
   );
 };

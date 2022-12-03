@@ -8,3 +8,12 @@ export const getAllTag = createSelector(
     return session.Tag.all().toRefArray()
      }
 );
+
+export const getAllTagAndAddFirst = createSelector(
+  orm,
+  state => state,
+  (session, state) => {
+    let arr = getAllTag(state)
+    return [{label: 'Показать все', value: null, name: null}, ...arr]
+  }
+)

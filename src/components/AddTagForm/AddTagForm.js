@@ -7,7 +7,6 @@ import TagForm from "./TagForm/TagForm";
 const AddTagForm = (props) => {
   const { todoId } = props;
   const dispatch = useDispatch();
-  // @ts-ignore
   const [isActive, setIsActive] = useState(false);
   const tagRef = useRef();
 
@@ -21,19 +20,22 @@ const AddTagForm = (props) => {
 
   const setValTagFunc = (e) => {
     // @ts-ignore
-    tagRef.current = { value: e };
+    if (!e) tagRef.current = "";
+    else tagRef.current = e;
   };
 
   const setTagFunc = () => {
-    setIsActive(false);
     const ref = tagRef.current;
-    // @ts-ignore
-    dispatch({ type: "ADD_TAG", payload: ref.value });
+    if (!ref || ref === "") {
+      setIsActive(false);
+      return;
+    }
+    dispatch({ type: "ADD_TAG", payload: ref });
     dispatch({
       type: "ADD_TAG_FROM_TODO",
-      // @ts-ignore
-      payload: { tag: ref.value, todoId },
+      payload: { tag: ref, todoId },
     });
+    setIsActive(false);
   };
 
   return (
@@ -45,6 +47,7 @@ const AddTagForm = (props) => {
           onChange={setValTagFunc}
           placeholder="Название тега"
           close={close}
+          tagRef={tagRef}
         />
       ) : (
         <BaseBtn onClick={onClickFunc} value="Добавить тэг" style="classic" />

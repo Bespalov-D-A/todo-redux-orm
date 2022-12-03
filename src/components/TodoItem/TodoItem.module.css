@@ -1,16 +1,27 @@
+@import './../../css/variables.css';
+
 .todo {
   position: relative;
   padding: 8px 18px 6px;
-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background: #fff;
+}
+
+.header {
+  position: relative;
+  padding-top: 4px;
 }
 
 .delete {
   position: absolute;
-  right: 12px;
-  top: 12px;
-  padding: 4px;
-  font-weight: bold;
-  background: crimson;
+  right: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  font-weight: 100;
+  background: var(--color-tertiary);
   color: #fff;
 }
 

@@ -1,3 +1,7 @@
+.form {
+  margin-bottom: 32px;
+}
+
 .form > h3 {
   margin: 0 12px 12px 0;
 }

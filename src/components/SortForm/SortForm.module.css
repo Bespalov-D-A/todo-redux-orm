@@ -1,0 +1,12 @@
+.sort {
+  position: relative;
+  padding-right: 20px;
+}
+
+.sort > h3 {
+  margin: 0;
+}
+
+.sort > :not(:last-child) {
+  margin-bottom: 12px;
+}

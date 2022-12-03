@@ -22,7 +22,7 @@ const AddTodoForm = () => {
 
   return (
     <div className={s.form}>
-      <h3>CREATE TODO</h3>
+      <h3>СОЗДАТЬ ЗАДАЧУ</h3>
       <BaseInput value={title} onChange={setTitle} type="text" />
       <BaseInput value={description} onChange={setDescription} type="text" />
       <BaseBtn

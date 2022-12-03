@@ -1,0 +1,15 @@
+.sort-by-tag__control {
+  width: 200px;
+  height: 34px !important;
+  min-height: 34px !important;
+  border-radius: 8px ;
+  border-color: palevioletred !important;
+}
+
+.sort-by-tag__indicators {
+
+}
+
+.sort-by-tag__value-container {
+  padding: 0 8px 2px 20px !important;
+}
