@@ -9,16 +9,16 @@ const AddUserForm = () => {
   const [name, setName] = useState("");
 
   const addUserFunc = () => {
-    if(name.length === 0) return
+    if (name.length === 0) return;
     dispatch({ type: "ADD_USER", payload: { id: null, name } });
     setName("");
   };
 
   return (
     <div className={s.form}>
-      <h3>ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ</h3>
+      <h4>ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ</h4>
       <BaseInput type="text" value={name} onChange={setName} />
-      <BaseBtn style={"classic"} value={"add"} onClick={addUserFunc} />
+      <BaseBtn color='dark-secondary' style={"classic"} value={"добавить"} onClick={addUserFunc} />
     </div>
   );
 };

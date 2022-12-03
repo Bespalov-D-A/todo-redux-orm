@@ -50,7 +50,7 @@ const AddTagForm = (props) => {
           tagRef={tagRef}
         />
       ) : (
-        <BaseBtn onClick={onClickFunc} value="Добавить тэг" style="classic" />
+        <BaseBtn onClick={onClickFunc} value="Добавить тэг" style="classic" color='dark-primary' />
       )}
     </div>
   );

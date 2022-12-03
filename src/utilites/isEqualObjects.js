@@ -1,3 +1,4 @@
+//Глубоков сравнение 2х объектов
 export function isEqual(object1, object2) {
   const props1 = Object.getOwnPropertyNames(object1);
   const props2 = Object.getOwnPropertyNames(object2);

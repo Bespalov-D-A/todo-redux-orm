@@ -1,4 +1,5 @@
 import { createSelector } from "redux-orm";
+import {equalStrOnArr} from "../../utilites/isEqualStrOnArr";
 import { orm } from "../models";
 
 export const getTodosByUserId = createSelector(
@@ -13,9 +14,9 @@ export const getTodosByUserId = createSelector(
   }
 );
 
-
-//Проверям есть создана ли хоть одна тодушка
-//Если да, то выводим только те, к оторый в tagsIds(реляционное поле)
+//выводим только те тудушки, которыe в tagsIds(реляционное поле)
+//имеют выбранный пользователем тег(selectedTag)
+//если тег не выбран выводим все тудушки
 export const getTodosByTag = createSelector(
   orm,
   (state) => state,
@@ -26,17 +27,17 @@ export const getTodosByTag = createSelector(
       const newArr = [];
       for (let i = 0; i < todos.length; i++) {
         const thisTodo = session.Todo.filter({ id: todos[i].id });
-        if (
+        if (selectedTag &&
           thisTodo
             .first()
             .tagsIds.toRefArray()
-            .find((el) => el.name === selectedTag)
-        )
-          newArr.push(thisTodo);
+            .find((el) => equalStrOnArr(el.name, selectedTag) )
+        ) newArr.push(thisTodo);
+        else if(!selectedTag) newArr.push(thisTodo)
       }
       // @ts-ignore
-      const remapArr =  newArr.map(item=>item.first().ref)
-      return remapArr
+      const remapArr = newArr.map((item) => item.first().ref);
+      return remapArr;
     }
   }
 );

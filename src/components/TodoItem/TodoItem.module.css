@@ -1,8 +1,14 @@
 @import './../../css/variables.css';
 
 .todo {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
   position: relative;
-  padding: 8px 18px 6px;
+  min-width: 200px;
+  max-width: 500px;
+  padding: 8px 18px 16px;
+  margin-bottom: 36px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background: #fff;
 }
@@ -30,5 +36,22 @@
 }
 
 .name {
-  color: indigo;
+  color: #000;
+}
+
+.name > b {
+  font-weight: 700;
+}
+
+.description {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.add-tag {
+  text-align: right;
+}
+
+.title {
+  padding: 12px;
 }

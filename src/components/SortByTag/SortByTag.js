@@ -1,7 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import Select from "react-select";
-import {getAllTag, getAllTagAndAddFirst} from "../../store/selectors/tagSelector";
-import {getTodosByTag} from "../../store/selectors/todoSelector";
+import { getAllTagAndAddFirst} from "../../store/selectors/tagSelector";
 import {setSelectedTag} from "../../store/slices/todoSlice";
 import s from './SortByTag.module.css'
 import './SortByTag.css'
@@ -12,10 +11,10 @@ const SortByTag = (props) => {
   const options = getAllTagAndAddFirst(state)
   
   const onChangeFunc = (e) => {
-    dispatch(setSelectedTag(e))
+    if(e.length === 0) 
+    dispatch(setSelectedTag(null))
+    else dispatch(setSelectedTag(e))
   }
-
-  getTodosByTag(state)
 
   const selectStyle = {
     control: (baseStyles) => ({
@@ -28,10 +27,11 @@ const SortByTag = (props) => {
   return <div className={s.sort}>
         <Select
           // @ts-ignore
-          classNamePrefix="sort-by-tag"
-          onChange={(e) => onChangeFunc(e.value)}
+          //classNamePrefix="sort-by-tag"
+          onChange={(e) => onChangeFunc(e)}
           styles={selectStyle}
           options={options}
+          isMulti={true}
         />
 
     </div>

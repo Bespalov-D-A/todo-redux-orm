@@ -1,0 +1,17 @@
+.logo {
+  display: flex;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+}
+
+.logo > img {
+  margin-right: 16px;
+}
+
+.logo > h2 {
+  padding-top: 23px;
+  letter-spacing: -2px;
+}
+
+

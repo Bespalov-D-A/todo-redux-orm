@@ -13,9 +13,7 @@ const TodoList = (props) => {
   const selectedUserId = useSelector(state => state.userSlice.selectedUserId)
 
   const getTodos = useMemo(()=> {
-    if(selectedTag)
       return getTodosByTag(state)
-    else return getTodosByUserId(state);
   // @ts-ignore
   }, [selectedTag, selectedUserId, state])
 
@@ -34,7 +32,7 @@ const TodoList = (props) => {
           )}
         />
       );
-    else return "У выбранного юзера нет задач";
+    else return <>У выбранного юзера нет задач</>
   };
 
   return (

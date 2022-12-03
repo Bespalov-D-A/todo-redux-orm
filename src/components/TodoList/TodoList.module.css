@@ -4,5 +4,5 @@
 }
 
 .todo-list > :not(:last-child) {
-  margin-right: 18px;
+  margin-right: 56px;
 }

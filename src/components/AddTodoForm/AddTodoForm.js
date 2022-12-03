@@ -7,6 +7,8 @@ import s from "./AddTodoForm.module.css";
 const AddTodoForm = () => {
   const dispatch = useDispatch();
   // @ts-ignore
+  const user = useSelector(state => state.userSlice.selectedUserId)
+  // @ts-ignore
   const selectedUserId = useSelector((state) => state.userSlice.selectedUserId);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -20,15 +22,19 @@ const AddTodoForm = () => {
     });
   };
 
+  console.log(user)
+
   return (
     <div className={s.form}>
-      <h3>СОЗДАТЬ ЗАДАЧУ</h3>
+      <h4>СОЗДАТЬ ЗАДАЧУ</h4>
       <BaseInput value={title} onChange={setTitle} type="text" />
       <BaseInput value={description} onChange={setDescription} type="text" />
       <BaseBtn
         style="classic"
+        color="dark-secondary"
         value="Создать задачу"
         onClick={createTodoFunc}
+        disabled={user === 'All' ? true : false}
       />
     </div>
   );

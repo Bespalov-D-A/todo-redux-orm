@@ -12,8 +12,10 @@
   bottom: 0;
   width: 320px;
   padding: 34px;
+  padding-top: 140px;
   display: flex;
   flex-flow: column wrap;
+  align-items: flex-end;
   background: #fff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }

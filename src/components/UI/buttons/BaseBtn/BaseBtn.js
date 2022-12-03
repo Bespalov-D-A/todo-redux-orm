@@ -1,10 +1,29 @@
-import s from './BaseBtn.module.css'
+import s from "./BaseBtn.module.css";
 
 const BaseBtn = (props) => {
-	const { btnRef, value, onClick, style } = props;
+	const { disabled, color, btnRef, value, onClick, style } = props;
+
+	function onClickFunc() {
+		if (!disabled) onClick();
+		else return;
+	}
 
 	return (
-		<div ref={btnRef && btnRef} className={s.btn + ' ' + s[style]} onClick={onClick} >{value}</div>
+		<div
+			ref={btnRef && btnRef}
+			className={
+				s.btn +
+				" " +
+				s[style] +
+				" " +
+				s[color] +
+				" " +
+				(disabled ? s.disabled : "")
+			}
+			onClick={onClickFunc}
+		>
+			{value}
+		</div>
 	);
 };
 

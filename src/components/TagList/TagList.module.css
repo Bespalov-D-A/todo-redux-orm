@@ -1,5 +1,6 @@
 .tag-list {
   display: flex;
+  flex-flow: row wrap;
   padding: 12px;
 }
 

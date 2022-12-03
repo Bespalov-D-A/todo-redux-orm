@@ -27,11 +27,14 @@ const TodoItem = (props) => {
         </p>
         <hr />
       </div>
-      <h4>{title}</h4>
-      <p>{description}</p>
-      <TagList todoId={id} tags={useGetTagsFromTodo(id)} />
+      <h3 className={s.title}>{title}</h3>
+      <p className={s.decription}>{description}</p>
+
       <div className={s.tag}>
-        <AddTagForm todoId={id} />
+        <TagList todoId={id} tags={useGetTagsFromTodo(id)} />
+      </div>
+      <div className={s['add-tag']}>
+      <AddTagForm todoId={id} />
       </div>
     </div>
   );

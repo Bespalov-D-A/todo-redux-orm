@@ -6,7 +6,7 @@ const SortForm = () => {
   const dispatch = useDispatch()
 
   return <div className={s.sort}>
-    <h3>SORT BY TAG</h3>
+    <h4>СОРТИРОВАТЬ ПО ТЕГАМ</h4>
     <SortByTag />
     </div>
 }

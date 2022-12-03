@@ -20,7 +20,7 @@ const SelectUserForm = (props) => {
 
   return (
     <div className={s.form}>
-      <h3>ВЫБРАТЬ ПОЛЬЗОВАТЕЛЯ</h3>
+      <h4>ВЫБРАТЬ ПОЛЬЗОВАТЕЛЯ</h4>
       <BaseSelect
         handleChange={setUserFunc}
         value={user}

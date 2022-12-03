@@ -16,6 +16,30 @@
 	cursor: pointer;
 }
 
+.btn.disabled {
+	opacity: 70%
+}
+
+.btn.primary {
+	background-color: var(--color-primary);
+}
+
+.btn.dark-primary {
+	background-color: var(--color-dark-primary);
+}
+
+.btn.secondary {
+	background-color: var(--color-secondary);
+}
+
+.btn.dark-secondary {
+	background-color: var(--color-dark-secondary);
+}
+
+.btn.tertiary {
+	background-color: var(--color-tertiary);
+}
+
 .btn.classic {
 	width: 200px;
 	height: 34px;
@@ -24,7 +48,6 @@
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	color: #fff;
-	background: var(--color-secondary-dark);
 }
 
 .btn.ok {
