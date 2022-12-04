@@ -5,7 +5,7 @@ import {setSelectedTag} from "../../store/slices/todoSlice";
 import s from './SortByTag.module.css'
 import './SortByTag.css'
 
-const SortByTag = (props) => {
+const SortByTag = () => {
   const state = useSelector(state => state)
   const dispatch = useDispatch()
   const options = getAllTagAndAddFirst(state)
@@ -16,20 +16,11 @@ const SortByTag = (props) => {
     else dispatch(setSelectedTag(e))
   }
 
-  const selectStyle = {
-    control: (baseStyles) => ({
-      ...baseStyles,
-      width: "200px;",
-    }),
-  };
-
-
   return <div className={s.sort}>
         <Select
           // @ts-ignore
           //classNamePrefix="sort-by-tag"
           onChange={(e) => onChangeFunc(e)}
-          styles={selectStyle}
           options={options}
           isMulti={true}
         />

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { ADD_USER } from "../../store/models/constants/userConstants";
 import BaseBtn from "../UI/buttons/BaseBtn/BaseBtn";
 import BaseInput from "../UI/inputs/BaseInput/BaseInput";
 import s from "./AddUserForm.module.css";
@@ -10,7 +11,7 @@ const AddUserForm = () => {
 
   const addUserFunc = () => {
     if (name.length === 0) return;
-    dispatch({ type: "ADD_USER", payload: { id: null, name } });
+    dispatch({ type: ADD_USER, payload: { id: null, name } });
     setName("");
   };
 
@@ -18,7 +19,12 @@ const AddUserForm = () => {
     <div className={s.form}>
       <h4>ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ</h4>
       <BaseInput type="text" value={name} onChange={setName} />
-      <BaseBtn color='dark-secondary' style={"classic"} value={"добавить"} onClick={addUserFunc} />
+      <BaseBtn
+        color="dark-secondary"
+        style={"classic"}
+        value={"добавить"}
+        onClick={addUserFunc}
+      />
     </div>
   );
 };

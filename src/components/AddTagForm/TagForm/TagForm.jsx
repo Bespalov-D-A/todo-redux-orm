@@ -2,9 +2,10 @@ import BaseBtn from "../../UI/buttons/BaseBtn/BaseBtn";
 import s from "./TagForm.module.css";
 import { useSelector } from "react-redux";
 import { orm } from "../../../store/models";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import { components } from "react-select";
+import { handlerClickOutside } from "../../../utilites/clickHandlerOutsideElement";
 
 const TagForm = (props) => {
   const { setFunc, close, onChange } = props;
@@ -20,14 +21,11 @@ const TagForm = (props) => {
     close();
   };
 
+  const onClick = (e) => {
+    handlerClickOutside(e, [btnRef, selectRef], unFocus);
+  };
+
   useEffect(() => {
-    const onClick = (e) => {
-      if (
-        !btnRef.current.contains(e.target) &&
-        !selectRef.current.contains(e.target)
-      )
-        unFocus();
-    };
     document.addEventListener("mousedown", onClick);
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
@@ -37,13 +35,6 @@ const TagForm = (props) => {
     // @ts-ignore
     setOptions(newOptions);
   }, []);
-
-  const selectStyle = {
-    control: (baseStyles) => ({
-      ...baseStyles,
-      width: "120px;",
-    }),
-  };
 
   const Input = (props) => {
     const newOnChange = (e) => {
@@ -62,7 +53,6 @@ const TagForm = (props) => {
             components={{ Input }}
             // @ts-ignore
             onChange={(e) => onChange(e.value)}
-            styles={selectStyle}
             options={options}
           />
         </div>

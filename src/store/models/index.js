@@ -1,7 +1,7 @@
 import {ORM} from "redux-orm";
-import {Tag} from "./tag";
-import {Todo} from "./todo";
-import {User} from "./user";
+import {Tag} from "./Tag";
+import {Todo} from "./Todo";
+import {User} from "./User";
 
 export const orm = new ORM({
   stateSelector: (state) => state.ormReducer

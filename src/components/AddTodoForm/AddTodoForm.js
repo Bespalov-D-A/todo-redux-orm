@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {ADD_TODO} from "../../store/models/constants/todoConstants";
 import BaseBtn from "../UI/buttons/BaseBtn/BaseBtn";
 import BaseInput from "../UI/inputs/BaseInput/BaseInput";
 import s from "./AddTodoForm.module.css";
@@ -17,13 +18,11 @@ const AddTodoForm = () => {
     setTitle("");
     setDescription("");
     dispatch({
-      type: "ADD_TODO",
+      type: ADD_TODO,
       payload: { title, description, userId: selectedUserId },
     });
+
   };
-
-  console.log(user)
-
   return (
     <div className={s.form}>
       <h4>СОЗДАТЬ ЗАДАЧУ</h4>

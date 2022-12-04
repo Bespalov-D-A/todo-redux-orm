@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import BaseBtn from "../UI/buttons/BaseBtn/BaseBtn";
 import s from "./AddTagForm.module.css";
 import TagForm from "./TagForm/TagForm";
@@ -50,7 +50,12 @@ const AddTagForm = (props) => {
           tagRef={tagRef}
         />
       ) : (
-        <BaseBtn onClick={onClickFunc} value="Добавить тэг" style="classic" color='dark-primary' />
+        <BaseBtn
+          onClick={onClickFunc}
+          value="Добавить тэг"
+          style="classic"
+          color="dark-primary"
+        />
       )}
     </div>
   );

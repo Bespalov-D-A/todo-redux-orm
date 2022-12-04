@@ -7,16 +7,15 @@ import {setSelectedUserId} from "../../store/slices/userSlice";
 import BaseSelect from "../UI/selects/BaseSelect/BaseSelect";
 import s from "./SelectUserForm.module.css";
 
-const SelectUserForm = (props) => {
+const SelectUserForm = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const users = userSelector(state)
+  const user = getUserSelector(state);
 
   const setUserFunc = (e) => {
     dispatch(setSelectedUserId(e.target.value));
   };
-
-  const user = getUserSelector(state);
 
   return (
     <div className={s.form}>

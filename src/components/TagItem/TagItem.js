@@ -1,4 +1,5 @@
 import {useDispatch} from 'react-redux'
+import {DELETE_TAG_FROM_TODO} from '../../store/models/constants/todoConstants'
 import s from './TagItem.module.css'
 
 const TagItem = (props) => {
@@ -6,7 +7,7 @@ const TagItem = (props) => {
   const {todoId, name} = props
 
   const deleteTag = () => {
-    dispatch({type: 'DELETE_TAG_FROM_TODO', payload: {todoId, tag: name}}) 
+    dispatch({type: DELETE_TAG_FROM_TODO, payload: {todoId, tag: name}}) 
   }
   
   return <div className={s.tag}>{name}

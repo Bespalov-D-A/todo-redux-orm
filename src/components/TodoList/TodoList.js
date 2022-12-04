@@ -1,21 +1,21 @@
-import {useMemo} from "react";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { getTodosByTag, getTodosByUserId } from "../../store/selectors/todoSelector";
+import { getTodosByTag } from "../../store/selectors/todoSelector";
 import List from "../common/List/List";
 import TodoItem from "../TodoItem/TodoItem";
 import s from "./TodoList.module.css";
 
-const TodoList = (props) => {
+const TodoList = () => {
   const state = useSelector((state) => state);
   // @ts-ignore
-  const selectedTag = useSelector(state => state.todoSlice.selectedTag)
+  const selectedTag = useSelector((state) => state.todoSlice.selectedTag);
   // @ts-ignore
-  const selectedUserId = useSelector(state => state.userSlice.selectedUserId)
+  const selectedUserId = useSelector((state) => state.userSlice.selectedUserId);
 
-  const getTodos = useMemo(()=> {
-      return getTodosByTag(state)
-  // @ts-ignore
-  }, [selectedTag, selectedUserId, state])
+  const getTodos = useMemo(() => {
+    return getTodosByTag(state);
+    // @ts-ignore
+  }, [selectedTag, selectedUserId, state]);
 
   const getList = () => {
     if (getTodos.length > 0)
@@ -32,7 +32,7 @@ const TodoList = (props) => {
           )}
         />
       );
-    else return <>У выбранного юзера нет задач</>
+    else return <>У выбранного юзера нет задач</>;
   };
 
   return (
