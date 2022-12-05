@@ -4,10 +4,10 @@ import AddUserForm from "./components/AddUserForm/AddUserForm";
 import Logo from "./components/Logo/Logo";
 import SelectUserForm from "./components/SelectUserForm/SelectUserForm";
 import SortForm from "./components/SortForm/SortForm";
+import StateTitle from "./components/StateTitle/StateTitle";
 import TodoList from "./components/TodoList/TodoList";
 
 function App() {
-
   return (
     <div className={s.app}>
       <div className={s.forms}>
@@ -17,7 +17,10 @@ function App() {
         <AddTodoForm />
         <SortForm />
       </div>
-      <TodoList />
+      <div>
+        <StateTitle />
+        <TodoList />
+      </div>
     </div>
   );
 }

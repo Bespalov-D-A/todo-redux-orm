@@ -10,7 +10,7 @@ export const getTodosByUserId = createSelector(
       return session.User.withId(selectedUserId).todos.toRefArray();
     } else if (selectedUserId === "All") {
       return session.Todo.all().toRefArray();
-    } else return "Юзер не выбран";
+    } else return null
   }
 );
 

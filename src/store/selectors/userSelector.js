@@ -14,7 +14,7 @@ export const getUserSelector = createSelector(
   (state) => state.userSlice.selectedUserId,
   (session, selectedUserId) => {
     if (selectedUserId === "All") {
-      return { id: "All" };
+      return { id: "All", name: 'All' };
     } else {
       const obj = session.User.withId(selectedUserId);
       if (obj) return obj.ref;
