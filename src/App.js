@@ -1,7 +1,7 @@
 import s from "./App.module.css";
 import AddTodoForm from "./components/AddTodoForm/AddTodoForm";
 import AddUserForm from "./components/AddUserForm/AddUserForm";
-import Logo from "./components/Logo/Logo";
+import LogoG from "./components/Logo/LogoG";
 import SelectUserForm from "./components/SelectUserForm/SelectUserForm";
 import SortForm from "./components/SortForm/SortForm";
 import StateTitle from "./components/StateTitle/StateTitle";
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className={s.app}>
       <div className={s.forms}>
-        <Logo />
+        <LogoG />
         <AddUserForm />
         <SelectUserForm />
         <AddTodoForm />
